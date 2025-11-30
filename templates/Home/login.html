@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card p-3">
+    <h2 class="text-center text-primary">Welcome to Todo<span class="text-warning">Task</span></h2>
+    
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group my-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Enter your username" required="true">
+      </div>
+      <div class="form-group my-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter your password" required="true">
+      </div>
+      <input type="submit" class="form-control my-3 btn btn-primary" value="Login">
+    </form>
+    
+    <p class="text-center">
+      I don't have an account? <a style="text-decoration: none;" href="{% url 'register' %}">Register</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
